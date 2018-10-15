@@ -1,7 +1,8 @@
 # Java Runtime Environment version (default = 8)
 ARG jre_version=8
 # Choose desired JDK as the base image
-FROM openjdk:${jre_version}-jre-alpine
+# FROM openjdk:${jre_version}-jre-alpine
+FROM openjdk:8-jre-alpine
 
 LABEL maintainer="Ajitem Sahasrabuddhe <ajitem.s@outlook.com>"
 
