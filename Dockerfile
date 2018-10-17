@@ -1,13 +1,5 @@
-<<<<<<< HEAD
-# Java Runtime Environment version (default = 8)
-ARG jre_version=8-jre-alpine
-# Choose desired JDK as the base image
-FROM openjdk:${jre_version}
-
-=======
 # Choose desired JDK as the base image
 FROM openjdk:8-jre-alpine
->>>>>>> 82aeed699d9525b5ada208856b6c2781e5058a99
 LABEL maintainer="Ajitem Sahasrabuddhe <ajitem.s@outlook.com>"
 
 RUN apk add --no-cache curl grep sed unzip
@@ -26,8 +18,8 @@ RUN curl -o sonarscanner.zip -L https://binaries.sonarsource.com/Distribution/so
 # prefer embedded java for musl over glibc
 RUN sed -i 's/use_embedded_jre=true/use_embedded_jre=false/g' /root/sonar-scanner/bin/sonar-scanner
 
-RUN groupadd -g 1000 sonar \
-  && useradd -u 1000 -g 1000 sonar
+RUN groupadd -g 1000 sonar && \
+    useradd -u 1000 -g 1000 sonar
 
 USER sonar
 
