@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 # Java Runtime Environment version (default = 8)
 ARG jre_version=8-jre-alpine
 # Choose desired JDK as the base image
 FROM openjdk:${jre_version}
 
+=======
+# Choose desired JDK as the base image
+FROM openjdk:8-jre-alpine
+>>>>>>> 82aeed699d9525b5ada208856b6c2781e5058a99
 LABEL maintainer="Ajitem Sahasrabuddhe <ajitem.s@outlook.com>"
 
 RUN apk add --no-cache curl grep sed unzip
@@ -11,8 +16,8 @@ ENV TZ=Asia/Kolkata
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 WORKDIR /root
-ARG sonar_scanner_version=3.2.0.1227
 # Get Sonar Scanner CLI + Cleanup
+ARG sonar_scanner_version=3.2.0.1227
 RUN curl -o sonarscanner.zip -L https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${sonar_scanner_version}-linux.zip &&  \
     unzip sonarscanner.zip && \
     rm sonarscanner.zip && \
