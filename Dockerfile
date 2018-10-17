@@ -18,8 +18,8 @@ RUN curl -o sonarscanner.zip -L https://binaries.sonarsource.com/Distribution/so
 # prefer embedded java for musl over glibc
 RUN sed -i 's/use_embedded_jre=true/use_embedded_jre=false/g' /root/sonar-scanner/bin/sonar-scanner
 
-RUN groupadd -g 1000 sonar && \
-    useradd -u 1000 -g 1000 sonar
+RUN addgroup -g 1000 sonar && \
+    adduser -D -u 1000 -G sonar sonar
 
 USER sonar
 
