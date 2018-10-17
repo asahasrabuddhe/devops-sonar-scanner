@@ -19,7 +19,8 @@ RUN curl -o sonarscanner.zip -L https://binaries.sonarsource.com/Distribution/so
 RUN sed -i 's/use_embedded_jre=true/use_embedded_jre=false/g' /root/sonar-scanner/bin/sonar-scanner
 
 RUN addgroup -g 1000 sonar && \
-    adduser -D -u 1000 -G sonar sonar
+    adduser -D -u 1000 -G sonar sonar && \
+    chown -R sonar:sonar /root
 
 USER sonar
 
