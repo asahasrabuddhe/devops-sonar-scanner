@@ -1,8 +1,12 @@
 # Choose desired JDK as the base image
 FROM openjdk:8-jre-alpine
-LABEL maintainer="Ajitem Sahasrabuddhe <ajitem.s@outlook.com>"
+LABEL maintainer="Ajitem Sahasrabuddhe <ajitem.s@outlook.com> & Yash Shanker Srivastava <yash.shanker@outlook.com>"
 
 RUN apk add --no-cache curl grep sed unzip
+
+#Install NodeJS and npm to fully support JS projects analysis
+RUN apk add --update nodejs npm
+
 # Set timezone to India 
 ENV TZ=Asia/Kolkata
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
