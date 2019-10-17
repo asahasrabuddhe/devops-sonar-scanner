@@ -5,7 +5,7 @@
 Run the following command from this Project's root folder.
 
 ```
-docker build -t devops-sonar-scanner:tag .
+docker build -t devops-sonar-scanner:latest
 ```
 This will save your image for future uses.
 
