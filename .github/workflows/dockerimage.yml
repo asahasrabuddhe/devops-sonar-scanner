@@ -11,4 +11,5 @@ jobs:
         name: ajitemsahasrabuddhe/sonar-scanner
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        cache: true 
+        cache: true
+        snapshot: true
